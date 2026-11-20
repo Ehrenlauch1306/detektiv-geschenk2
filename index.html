@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ermittlungsakte 001</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <header class="header">
+            <div class="case-number">POLIZEI – SONDERKOMMISSION</div>
+            <div class="confidential">VERTRAULICH</div>
+            <h1>ERMITTLUNGSAKTE</h1>
+            <p>Fallnummer: 001-2026</p>
+        </header>
+
+        <section class="case-info">
+            <div>
+                <span class="label">STATUS</span>
+                <span class="value">UNGELÖST</span>
+            </div>
+            <div>
+                <span class="label">PRIORITÄT</span>
+                <span class="value">GEHEIM</span>
+            </div>
+            <div>
+                <span class="label">ERMITTLER</span>
+                <span class="value">HANNAH</span>
+            </div>
+        </section>
+
+        <section class="description">
+            <h2>01 – DIE PROPHEZEIUNG</h2>
+            <p>
+                Ein wertvoller Gegenstand wurde sichergestellt,
+                doch sein genauer Verbleib ist unbekannt.
+                Die bisherigen Ermittlungen führten zu keiner
+                eindeutigen Lösung.
+            </p>
+            <p>
+                Deine Aufgabe ist es, die uns vorliegende Prophezeiung zu lüften. Nur dann kann die
+                Akte geschlossen und der Fall gelöst werden. Wir alle zählen auf dich.
+            </p>
+        </section>
+
+        <section class="riddle">
+            <h2>02 – BEWEISSTÜCK A</h2>
+
+            <div class="evidence">
+                <span class="evidence-label">BEWEISSTÜCK A / ORIGINALHINWEIS</span>
+
+                <p id="riddleText">
+                    DIE PROPHEZEIUNG:
+
+Ein Ort birgt ein Geheimnis, das nur jene finden, die die Zeichen der Vergangenheit zu deuten wissen. 
+
+Ein König, dessen Name mit seinem eigenen Schicksal verbunden war, löste einst das Rätsel eines Ungeheuers. 
+
+Seine Füße waren nicht wie die anderer Kinder. Sie trugen die Spuren einer Vergangenheit, welche er sich nicht selbst zuführte.  
+
+Selbst heute liest man in <span class="subtle-clue">Lektüre</span>n von ihm. 
+
+Als er Antworten auf sein Schicksal suchte, wandte er sich an einen Ort, an dem die Zukunft durch Worte offenbart wurde. 
+
+Dort standen zwei Weisheiten: 
+
+„Erkenne dich selbst.“ 
+
+„Nichts im Übermaß.“ 
+
+Finde den Ort, an dem diese Worte verewigt wurden. 
+                </p>
+            </div>
+        </section>
+
+        <section class="solution">
+            <h2>03 – LÖSUNGSEINGABE</h2>
+            <p>Gib das gesuchte Lösungswort ein:</p>
+
+            <div class="input-area">
+                <input
+                    type="text"
+                    id="answer"
+                    placeholder="Lösungswort eingeben..."
+                    autocomplete="off"
+                >
+                <button onclick="checkAnswer()">ÜBERPRÜFEN</button>
+            </div>
+
+            <p id="feedback"></p>
+        </section>
+
+        <section class="hints">
+            <h2>04 – PIN-ENTHÜLLUNG</h2>
+
+            <p>
+                Sollte die Ermittlung ins Stocken geraten,
+                wird ab dem 21.11.2026 täglich eine weitere Ziffer des Gutschein-PINs
+                freigegeben.
+            </p>
+
+            <div id="letterContainer" class="letters"></div>
+
+            <p id="hintStatus" class="hint-status"></p>
+        </section>
+
+        <section id="successPanel" class="success hidden" aria-live="polite">
+            <div class="success-stamp">FALL GELÖST</div>
+            <h2>ERMITTLUNG ABGESCHLOSSEN</h2>
+            <p>Hervorragende Arbeit. Du hast den Fall erfolgreich gelöst. Die gesuchte Belohnung wurde freigegeben.</p>
+
+            <div class="voucher">
+                <span>DEIN THALIA-GUTSCHEIN</span>
+                <img class="success-barcode" src="thalia-barcode.jpg" alt="Thalia-Geschenkkarte mit PIN 7070 und Barcode">
+            </div>
+
+            <p class="final-note">Akte geschlossen. Ende der Ermittlungen. (Falls du den Gutschein noch in wirklicher Gutschein Form haben möchtest sprich mich an, ich weiß leider nicht ob der so einlösbar ist - Sry)</p>
+        </section>
+
+        <footer>
+            <p>SONDERKOMMISSION – INTERNE ERMITTLUNGEN</p>
+            <p>UNBEFUGTER ZUGRIFF IST UNTERSAGT</p>
+        </footer>
+
+    </main>
+
+<!-- EINMALIGES TUTORIAL -->
+<div id="tutorialOverlay" class="tutorial-overlay hidden">
+    <div class="tutorial-box">
+
+        <div class="tutorial-top">
+            <span>SONDERKOMMISSION</span>
+            <span class="tutorial-stamp">INFORMATION</span>
+        </div>
+
+        <h2>WILLKOMMEN, ERMITTLER.</h2>
+
+        <p class="tutorial-intro">
+            Bevor du mit deinen Ermittlungen beginnst,
+            hier eine kurze Einweisung.
+        </p>
+
+        <div class="tutorial-step">
+            <span class="step-number">01</span>
+            <div>
+                <strong>RÄTSEL LÖSEN</strong>
+                <p>Lies den Hinweis sorgfältig und gib dein Lösungswort in das Eingabefeld ein.</p>
+            </div>
+        </div>
+
+        <div class="tutorial-step">
+            <span class="step-number">02</span>
+            <div>
+                <strong>HILFEN NUTZEN</strong>
+                <p>Ab dem 21.11.2026 wird täglich eine weitere Ziffer des vierstelligen Gutschein-PINs enthüllt.</p>
+            </div>
+        </div>
+
+        <div class="tutorial-step">
+            <span class="step-number">03</span>
+            <div>
+                <strong>FALL ABSCHLIESSEN</strong>
+                <p>Gib „Delphi“ als Lösungswort ein. Bei richtiger Lösung wird der Thalia-Gutschein freigeschaltet. Die PIN-Ziffern werden unabhängig davon täglich sichtbar.</p>
+            </div>
+        </div>
+
+        <button onclick="closeTutorial()" class="tutorial-button">
+            VERSTANDEN – ERMITTLUNG STARTEN
+        </button>
+
+        <p class="tutorial-footer">
+            SONDERKOMMISSION – INTERNE ANWEISUNG
+        </p>
+
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,538 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Roboto+Mono:wght@400;500;700&display=swap');
+
+:root {
+    --background: #101211;
+    --panel: #191e1b;
+    --paper: #d4d0c4;
+    --text: #e2e4df;
+    --muted: #929a92;
+    --red: #a83c36;
+    --border: #343b35;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 35px 15px;
+    background:
+        radial-gradient(ellipse at top, #29312b 0%, #101211 65%);
+    color: var(--text);
+    font-family: 'Roboto Mono', monospace;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 760px;
+    margin: auto;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 35px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.45);
+}
+
+.header {
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 25px;
+    position: relative;
+}
+
+.case-number {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--muted);
+}
+
+.confidential {
+    display: inline-block;
+    margin: 20px 0 10px;
+    padding: 8px 18px;
+    border: 2px solid var(--red);
+    color: var(--red);
+    font-weight: bold;
+    letter-spacing: 3px;
+    transform: rotate(-3deg);
+}
+
+.header h1 {
+    font-family: 'Special Elite', monospace;
+    font-size: clamp(25px, 6vw, 38px);
+    letter-spacing: 2px;
+    margin: 12px 0;
+}
+
+.header p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.case-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 25px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.case-info div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+}
+
+.label {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+}
+
+.value {
+    font-size: 12px;
+    font-weight: bold;
+    color: #c5a46b;
+}
+
+section:not(.case-info) {
+    margin-top: 30px;
+}
+
+h2 {
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #c5a46b;
+    margin-bottom: 18px;
+}
+
+.description p,
+.hints p,
+.solution p,
+.success p {
+    font-size: 12px;
+    line-height: 1.9;
+    color: #c1c7c0;
+}
+
+.evidence {
+    background: #d4d0c4;
+    color: #252720;
+    padding: 28px;
+    position: relative;
+    transform: rotate(-0.5deg);
+    box-shadow: 4px 5px 12px rgba(0,0,0,0.25);
+}
+
+.evidence-label {
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #69695e;
+}
+
+.evidence p {
+    font-family: 'Special Elite', monospace;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-top: 25px;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    background: #101411;
+    border: 1px solid var(--border);
+    padding: 14px;
+    color: white;
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #c5a46b;
+}
+
+button {
+    background: #a83c36;
+    color: white;
+    border: none;
+    padding: 14px 18px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #c14c43;
+    transform: translateY(-2px);
+}
+
+#feedback {
+    min-height: 20px;
+    font-size: 11px;
+    margin-top: 12px;
+}
+
+.letters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.letter {
+    width: 38px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0e1210;
+    border: 1px solid var(--border);
+    font-size: 17px;
+    font-weight: bold;
+    color: #c5a46b;
+}
+
+.letter.hidden-letter {
+    color: #687068;
+}
+
+.hint-status {
+    color: var(--muted) !important;
+    font-size: 10px !important;
+}
+
+.success {
+    text-align: center;
+    padding: 25px 15px;
+    border: 1px solid #657b56;
+    background: rgba(90, 120, 70, 0.08);
+    animation: appear 0.8s ease;
+}
+
+.success-stamp {
+    display: inline-block;
+    color: #8eaf72;
+    border: 2px solid #8eaf72;
+    padding: 10px 20px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    transform: rotate(-3deg);
+    margin-bottom: 20px;
+}
+
+.voucher {
+    background: #d4d0c4;
+    color: #222;
+    padding: 22px;
+    margin-top: 25px;
+}
+
+.voucher span {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.voucher strong {
+    font-size: 20px;
+    letter-spacing: 2px;
+    overflow-wrap: anywhere;
+}
+
+.final-note {
+    color: #8eaf72 !important;
+    margin-top: 25px;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: #626b63;
+    font-size: 9px;
+    letter-spacing: 1px;
+    line-height: 2;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 550px) {
+    body {
+        padding: 15px 8px;
+    }
+
+    .container {
+        padding: 22px 17px;
+    }
+
+    .input-area {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .case-info {
+        gap: 5px;
+    }
+
+    .value {
+        font-size: 10px;
+    }
+
+    .evidence {
+        padding: 20px;
+    }
+
+    .evidence p {
+        font-size: 15px;
+    }
+}
+
+/* ==========================================
+   TUTORIAL POP-UP
+========================================== */
+
+.tutorial-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.88);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.tutorial-overlay.hidden {
+    display: none;
+}
+
+.tutorial-box {
+    width: 100%;
+    max-width: 510px;
+    background: #191e1b;
+    border: 1px solid #555e53;
+    padding: 28px;
+    box-shadow: 0 20px 70px rgba(0,0,0,0.7);
+    animation: appear 0.4s ease;
+}
+
+.tutorial-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    color: #929a92;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.tutorial-stamp {
+    border: 1px solid #a83c36;
+    color: #c75a50;
+    padding: 5px 8px;
+    transform: rotate(-3deg);
+}
+
+.tutorial-box h2 {
+    margin-top: 30px;
+    font-family: 'Special Elite', monospace;
+    font-size: 22px;
+}
+
+.tutorial-intro {
+    color: #c1c7c0;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.tutorial-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    border-top: 1px solid #343b35;
+    padding: 17px 0;
+}
+
+.step-number {
+    color: #c5a46b;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.tutorial-step strong {
+    font-size: 11px;
+    color: #d4d0c4;
+}
+
+.tutorial-step p {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #929a92;
+    margin: 7px 0 0;
+}
+
+.tutorial-button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 17px 10px;
+    font-size: 10px;
+}
+
+.tutorial-footer {
+    text-align: center;
+    font-size: 8px;
+    color: #626b63;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+@media (max-width: 450px) {
+    .tutorial-box {
+        padding: 21px;
+    }
+
+    .tutorial-box h2 {
+        font-size: 19px;
+    }
+}
+
+
+/* Dezenter Hinweis in der Prophezeiung */
+.subtle-clue {
+    color: #514f45;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: rgba(81, 79, 69, 0.55);
+    text-underline-offset: 3px;
+}
+
+
+/* Thalia-Barcode im freigeschalteten Gutscheinbereich */
+.voucher-barcode {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(34, 34, 34, 0.25);
+    text-align: center;
+}
+
+.voucher-barcode > span {
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.voucher-barcode a {
+    display: block;
+    line-height: 0;
+}
+
+.voucher-barcode img {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid rgba(34, 34, 34, 0.25);
+    background: #fff;
+}
+
+.voucher-barcode small {
+    display: block;
+    margin-top: 9px;
+    font-size: 9px;
+    color: #555;
+}
+
+
+/* Ein einzelnes, fokussiertes Gutschein-Popup mit dem Barcode-Foto */
+.barcode-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.88);
+}
+
+.barcode-modal.hidden {
+    display: none;
+}
+
+.barcode-modal-content {
+    position: relative;
+    width: min(720px, 100%);
+    padding: 14px;
+    background: #1e261f;
+    border: 1px solid var(--border, #789064);
+    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.55);
+}
+
+.barcode-modal-content img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 82vh;
+    object-fit: contain;
+    background: #fff;
+}
+
+.barcode-modal-close {
+    display: block;
+    margin: 0 0 8px auto;
+    padding: 0 5px;
+    border: 0;
+    background: transparent;
+    color: #e8e8df;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+
+/* Barcode-Foto im Gutscheinfeld des Bereichs „Fall gelöst“ */
+.success-barcode {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid rgba(34, 34, 34, 0.25);
+    background: #fff;
+}
